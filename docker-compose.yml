@@ -1,0 +1,20 @@
+services:
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - "db:/var/lib/mysql:rw"
+      - "./mysqlsampledatabase.sql.gz:/docker-entrypoint-initdb.d/db.sql.gz:ro"
+    environment:
+      - MYSQL_ROOT_PASSWORD=toor
+
+  ubuntu:
+    image: ubuntu:focal
+    command: ["tail", "-f", "/dev/null"]
+    volumes:
+      - "db:/var/lib/mysql"
+      - "./my.cnf:/etc/my.cnf:ro"
+      - "./mysql-backup:/mysql-backup"
+
+volumes:
+  db:
+
