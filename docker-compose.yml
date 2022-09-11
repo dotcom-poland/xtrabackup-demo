@@ -7,9 +7,10 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=toor
 
-  ubuntu:
-    image: ubuntu:focal
-    command: ["tail", "-f", "/dev/null"]
+  percona:
+    image: percona/percona-xtrabackup:2.4
+    entrypoint: ["tail"]
+    command: ["-f", "/dev/null"]
     volumes:
       - "db:/var/lib/mysql"
       - "./my.cnf:/etc/my.cnf:ro"

@@ -9,18 +9,17 @@ Live Percona XtraBackup tool demo application in
 ## Usage
 
 1. `make start` to create the project
-2. `make install` to install the XtraBackup tool
-3. `make list_customers` to dump customers
-4. `make backup` to create the backup
-5. `make corrupt` to corrupt the database!
-6. `make list_customers` to try to dump customers again
-7. `make restore` to restore the database from the backup
-8. `make list_customers` to verify customers were restored
-9. `make stop` to stop and clean everything
+2. `make list_customers` to dump customers
+3. `make backup` to create the backup
+4. `make corrupt` to corrupt the database!
+5. `make list_customers` to try to dump customers again
+6. `make restore` to restore the database from the backup
+7. `make list_customers` to verify customers were restored
+8. `make stop` to stop and clean everything
 
 # Description
 
-The project spawns two containers: `mysql` and `ubuntu`. Both containers share the same volume
+The project spawns two containers: `mysql` and `percona`. Both containers share the same volume
 mounted to `/var/lib/mysql`. When the `mysql` container starts it's pre-populated using sql files
 from the `mysqlsampledatabase.sql.gz`.
 
